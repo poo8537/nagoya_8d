@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>名古屋8日遊 ✈ 6/13–6/20</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1714;
+    --ink-mid: #3d3630;
+    --ink-light: #7a6f66;
+    --ink-faint: #b8ada4;
+    --paper: #faf7f2;
+    --paper-warm: #f3ede3;
+    --paper-card: #ffffff;
+    --red: #c13228;
+    --red-light: #f5e8e7;
+    --gold: #b07a0e;
+    --gold-light: #fdf0d0;
+    --teal: #1a6b60;
+    --teal-light: #e0f2ee;
+    --indigo: #2b4a8f;
+    --indigo-light: #e6ecf8;
+    --amber: #b56e00;
+    --amber-light: #fef0d0;
+    --moss: #4a6b2a;
+    --moss-light: #eaf3df;
+    --slate: #4a5568;
+    --slate-light: #edf2f7;
+    --border: rgba(26,23,20,0.1);
+    --shadow-sm: 0 2px 8px rgba(26,23,20,0.06);
+    --shadow-md: 0 4px 20px rgba(26,23,20,0.10);
+    --shadow-lg: 0 8px 40px rgba(26,23,20,0.13);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 70px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 80%, rgba(176,122,14,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 80% 20%, rgba(26,107,96,0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-label {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(250,247,242,0.5);
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  .hero-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(16px, 2.5vw, 22px);
+    color: rgba(250,247,242,0.65);
+    margin-bottom: 32px;
+  }
+  .hero-meta {
+    display: inline-flex;
+    gap: 24px;
+    border: 1px solid rgba(250,247,242,0.15);
+    border-radius: 40px;
+    padding: 12px 28px;
+    font-size: 13px;
+    color: rgba(250,247,242,0.75);
+    background: rgba(250,247,242,0.05);
+    backdrop-filter: blur(8px);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero-meta span { display: flex; align-items: center; gap: 6px; }
+  .hero-deco {
+    position: absolute;
+    font-size: 220px;
+    opacity: 0.03;
+    font-family: 'Noto Serif TC', serif;
+    top: -20px;
+    right: 30px;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  /* OVERVIEW STRIP */
+  .overview {
+    background: var(--paper-warm);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 40px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+  .ov-item {
+    flex: 1;
+    min-width: 90px;
+    text-align: center;
+    padding: 10px 8px;
+    border-right: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.2s;
+    border-radius: 0;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .ov-item:last-child { border-right: none; }
+  .ov-item:hover { background: rgba(26,23,20,0.04); }
+  .ov-day { font-size: 10px; color: var(--ink-faint); letter-spacing: 0.1em; margin-bottom: 2px; }
+  .ov-date { font-size: 20px; font-weight: 500; font-family: 'Noto Serif TC', serif; }
+  .ov-theme { font-size: 10px; color: var(--ink-light); margin-top: 2px; line-height: 1.3; }
+  .ov-dot { width: 6px; height: 6px; border-radius: 50%; margin: 6px auto 0; }
+
+  /* WEATHER IN OVERVIEW */
+  .ov-weather {
+    margin-top: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    min-height: 44px;
+  }
+  .ov-wx-icon { font-size: 20px; line-height: 1.2; }
+  .ov-wx-temp {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink-mid);
+    letter-spacing: 0.02em;
+  }
+  .ov-wx-desc {
+    font-size: 9px;
+    color: var(--ink-faint);
+    line-height: 1.2;
+  }
+  .ov-wx-loading {
+    font-size: 9px;
+    color: var(--ink-faint);
+    animation: wx-pulse 1.2s ease-in-out infinite;
+  }
+  @keyframes wx-pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+  .ov-wx-rain {
+    font-size: 9px;
+    color: #2b6cb0;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+  /* weather color tints */
+  .ov-item[data-wx="sunny"]  { background: linear-gradient(to bottom, rgba(255,210,80,0.07), transparent 60%); }
+  .ov-item[data-wx="cloudy"] { background: linear-gradient(to bottom, rgba(180,180,200,0.07), transparent 60%); }
+  .ov-item[data-wx="rainy"]  { background: linear-gradient(to bottom, rgba(80,130,200,0.09), transparent 60%); }
+  .ov-item[data-wx="storm"]  { background: linear-gradient(to bottom, rgba(100,80,180,0.09), transparent 60%); }
+  .ov-item[data-wx="sunny"]:hover  { background: linear-gradient(to bottom, rgba(255,210,80,0.14), rgba(26,23,20,0.02) 100%); }
+  .ov-item[data-wx="cloudy"]:hover { background: linear-gradient(to bottom, rgba(180,180,200,0.14), rgba(26,23,20,0.02) 100%); }
+  .ov-item[data-wx="rainy"]:hover  { background: linear-gradient(to bottom, rgba(80,130,200,0.16), rgba(26,23,20,0.02) 100%); }
+  .ov-item[data-wx="storm"]:hover  { background: linear-gradient(to bottom, rgba(100,80,180,0.16), rgba(26,23,20,0.02) 100%); }
+
+  /* MAIN LAYOUT */
+  .main { max-width: 900px; margin: 0 auto; padding: 50px 24px 80px; }
+
+  /* SECTION HEADER */
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .day-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 0.12;
+    flex-shrink: 0;
+  }
+  .day-info { flex: 1; }
+  .day-badge-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .day-pill {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+  }
+  .day-title-text {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .day-date-text { font-size: 12px; color: var(--ink-faint); }
+
+  /* DAY SECTION */
+  .day-section {
+    margin-bottom: 52px;
+    animation: fadeUp 0.5s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .day-section:nth-child(1) { animation-delay: 0.05s; }
+  .day-section:nth-child(2) { animation-delay: 0.1s; }
+  .day-section:nth-child(3) { animation-delay: 0.15s; }
+  .day-section:nth-child(4) { animation-delay: 0.2s; }
+  .day-section:nth-child(5) { animation-delay: 0.25s; }
+  .day-section:nth-child(6) { animation-delay: 0.3s; }
+  .day-section:nth-child(7) { animation-delay: 0.35s; }
+  .day-section:nth-child(8) { animation-delay: 0.4s; }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 1.5px;
+    background: linear-gradient(to bottom, var(--border), var(--border));
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 12px;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -21px;
+    top: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 2px solid var(--paper);
+    background: var(--ink-faint);
+    box-shadow: 0 0 0 1px var(--ink-faint);
+    transition: transform 0.2s, background 0.2s;
+  }
+  .tl-item:hover::before { transform: scale(1.3); }
+
+  .tl-card {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .tl-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateX(2px);
+  }
+
+  .tl-top { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+  .tl-time {
+    font-size: 11px;
+    color: var(--ink-faint);
+    min-width: 80px;
+    padding-top: 3px;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+  .tl-name { font-size: 14px; font-weight: 500; color: var(--ink); line-height: 1.4; flex: 1; }
+  .tl-note { font-size: 12px; color: var(--ink-light); line-height: 1.6; margin-top: 4px; margin-left: 90px; }
+  .tl-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; margin-left: 90px; }
+  .tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .tag-food { background: #fff4e0; color: #7a4a00; border: 1px solid #f5d98a; }
+  .tag-scenic { background: #e6f5ee; color: #1a6b38; border: 1px solid #8dd4a8; }
+  .tag-ticket { background: #e6ecf8; color: #2b4a8f; border: 1px solid #9ab1d8; }
+  .tag-warn { background: #fdeaea; color: #a02020; border: 1px solid #e8a8a8; }
+  .tag-done { background: #edf8f3; color: #1a6b4a; border: 1px solid #7ed4a8; }
+
+  /* TIP BOX */
+  .tip-box {
+    margin: 14px 0 0 90px;
+    background: var(--paper-warm);
+    border-left: 3px solid var(--ink-faint);
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--ink-light);
+    line-height: 1.6;
+  }
+
+  /* CHOICE CARDS */
+  .choice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0 0 90px;
+  }
+  .choice-card {
+    background: var(--paper-warm);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+  }
+  .choice-label {
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border);
+  }
+  .choice-body { font-size: 11px; color: var(--ink-light); line-height: 1.6; }
+  .choice-price {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gold);
+  }
+
+  /* COST SUMMARY */
+  .cost-box {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-top: 52px;
+  }
+  .cost-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: rgba(250,247,242,0.9);
+  }
+  .cost-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .cost-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(250,247,242,0.07);
+    font-size: 13px;
+  }
+  .cost-row:last-child { border-bottom: none; }
+  .cost-label { color: rgba(250,247,242,0.55); }
+  .cost-val { font-weight: 500; color: rgba(250,247,242,0.9); }
+  .cost-val.gold { color: #e8c470; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 32px;
+    font-size: 12px;
+    color: var(--ink-faint);
+    border-top: 1px solid var(--border);
+  }
+  footer strong { color: var(--ink-light); font-weight: 500; }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .hero { padding: 50px 20px 40px; }
+    .overview { padding: 14px 16px; }
+    .main { padding: 30px 16px 60px; }
+    .tl-note, .tl-tags, .tip-box, .choice-grid { margin-left: 0; }
+    .choice-grid { grid-template-columns: 1fr; }
+    .cost-grid { grid-template-columns: 1fr; }
+    .tl-top { flex-wrap: wrap; }
+    .tl-time { min-width: auto; }
+  }
+
+  /* Print */
+  @media print {
+    .tl-card:hover { transform: none; box-shadow: none; }
+    body { background: white; }
+  }
+
+  /* Color accents per day */
+  .d1 { --accent: #1a6eb5; --accent-light: #e6f0fa; }
+  .d2 { --accent: #1a6b60; --accent-light: #e0f3ef; }
+  .d3 { --accent: #c13228; --accent-light: #faeae9; }
+  .d4 { --accent: #6a3aab; --accent-light: #f0eaf8; }
+  .d5 { --accent: #b07a0e; --accent-light: #fdf0d0; }
+  .d6 { --accent: #2b4a8f; --accent-light: #e6ecf8; }
+  .d7 { --accent: #c13228; --accent-light: #faeae9; }
+  .d8 { --accent: #4a5568; --accent-light: #edf2f7; }
+
+  .day-section .tl-item::before { background: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .day-section .timeline::before { background: linear-gradient(to bottom, var(--accent), rgba(255,255,255,0)); }
+  .day-section .day-pill { background: var(--accent-light); color: var(--accent); }
+  .day-section .tip-box { border-left-color: var(--accent); }
+  .day-section .tl-time { color: var(--accent); opacity: 0.65; }
+  .day-section .day-num { color: var(--accent); opacity: 0.2; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-deco">旅</div>
+  <div class="hero-label">Japan Travel · 2025</div>
+  <h1 class="hero-title">名古屋八日遊</h1>
+  <div class="hero-sub">岐阜 · 伊勢 · 飛驒高山 · 白川鄉</div>
+  <div class="hero-meta">
+    <span>✈ 6月13日（六）出發</span>
+    <span>🏠 APA 名古屋站前</span>
+    <span>📅 8天7夜</span>
+    <span>🗾 中部地區周遊</span>
+  </div>
+</div>
+
+<!-- OVERVIEW STRIP -->
+<div class="overview">
+  <a class="ov-item" href="#d1" data-date="2025-06-13">
+    <div class="ov-day">DAY 1</div>
+    <div class="ov-date">6/13</div>
+    <div class="ov-theme">大須商店街</div>
+    <div class="ov-weather"><span class="ov-wx-loading">載入天氣…</span></div>
+    <div class="ov-dot" style="background:#1a6eb5"></div>
+  </a>
+  <a class="ov-item" href="#d2" data-date="2025-06-14">
+    <div class="ov-day">DAY 2</div>
+    <div class="ov-date">6/14</div>
+    <div class="ov-theme">岐阜城・鸕鶿</div>
+    <div class="ov-weather"><span class="ov-wx-loading">載入天氣…</span></div>
+    <div class="ov-dot" style="background:#1a6b60"></div>
+  </a>
+  <a class="ov-item" href="#d3" data-date="2025-06-15">
+    <div class="ov-day">DAY 3</div>
+    <div class="ov-date">6/15</div>
+    <div class="ov-theme">長島樂園</div>
+    <div class="ov-weather"><span class="ov-wx-loading">載入天氣…</span></div>
+    <div class="ov-dot" style="background:#c13228"></div>
+  </a>
+  <a class="ov-item" href="#d4" data-date="2025-06-16">
+    <div class="ov-day">DAY 4</div>
+    <div class="ov-date">6/16</div>
+    <div class="ov-theme">名古屋水族館</div>
+    <div class="ov-weather"><span class="ov-wx-loading">載入天氣…</span></div>
+    <div class="ov-dot" style="background:#6a3aab"></div>
+  </a>
+  <a class="ov-item" href="#d5" data-date="2025-06-17">
+    <div class="ov-day">DAY 5</div>
+    <div class="ov-date">6/17</div>
+    <div class="ov-theme">伊勢神宮</div>
+    <div class="ov-weather"><span class="ov-wx-loading">載入天氣…</span></div>
+    <div class="ov-dot" style="background:#b07a0e"></div>
+  </a>
+  <a class="ov-item" href="#d6" data-date="2025-06-18">
+    <div class="ov-day">DAY 6</div>
+    <div class="ov-date">6/18</div>
+    <div class="ov-theme">飛驒・白川鄉</div>
+    <div class="ov-weather"><span class="ov-wx-loading">載入天氣…</span></div>
+    <div class="ov-dot" style="background:#2b4a8f"></div>
+  </a>
+  <a class="ov-item" href="#d7" data-date="2025-06-19">
+    <div class="ov-day">DAY 7</div>
+    <div class="ov-date">6/19</div>
+    <div class="ov-theme">熱田・名城・榮</div>
+    <div class="ov-weather"><span class="ov-wx-loading">載入天氣…</span></div>
+    <div class="ov-dot" style="background:#c13228"></div>
+  </a>
+  <a class="ov-item" href="#d8" data-date="2025-06-20">
+    <div class="ov-day">DAY 8</div>
+    <div class="ov-date">6/20</div>
+    <div class="ov-theme">回程</div>
+    <div class="ov-weather"><span class="ov-wx-loading">載入天氣…</span></div>
+    <div class="ov-dot" style="background:#4a5568"></div>
+  </a>
+</div>
+
+<div class="main">
+
+<!-- DAY 1 -->
+<div class="day-section d1" id="d1">
+  <div class="section-head">
+    <div class="day-num">01</div>
+    <div class="day-info">
+      <div class="day-badge-row">
+        <span class="day-pill">DAY 1</span>
+        <span class="day-date-text">2025年6月13日（六）</span>
+      </div>
+      <div class="day-title-text">抵達名古屋 × 大須商店街</div>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">09:00 起飛</div>
+          <div class="tl-name">✈ TPE → NGO 中部國際機場第一航廈落地</div>
+        </div>
+        <div class="tl-note">12:55 抵達 · 廉航需提前 2.5 小時報到 · 約 14:15–14:30 出機場</div>
+        <div class="tl-tags"><span class="tag tag-warn">廉航提早到</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">14:30–15:30</div>
+          <div class="tl-name">🚆 名鐵 μ-SKY → 名古屋站 · Check-in APA 飯店</div>
+        </div>
+        <div class="tl-note">車程約 30 分鐘 · 先辦理入住或寄放行李</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">15:45–16:30</div>
+          <div class="tl-name">🍽 矢場とん ESCA店 — 味噌豬排</div>
+        </div>
+        <div class="tl-note">名古屋名物首選，午晚餐合併</div>
+        <div class="tl-tags"><span class="tag tag-food">必吃</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">17:00–19:30</div>
+          <div class="tl-name">🛍 大須商店街漫遊</div>
+        </div>
+        <div class="tl-note">名古屋站 → 地鐵 → 大須觀音站 · 大須觀音通 · 新天地通 · 萬松寺通 · 東仁王門通 · 古著、動漫、二手電器、小吃攤</div>
+        <div class="tl-tags">
+          <span class="tag tag-food">邊走邊吃</span>
+          <span class="tag tag-scenic">古著動漫</span>
+        </div>
+        <div class="tip-box">
+          🍡 推薦小吃：Maruyoshi 味噌炸雞 · MARION 可麗餅 · 天むす屋天婦羅飯糰 · 築地銀だこ章魚燒 · 鳴門鯛魚燒 · 炭烤鰻魚登河
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 2 -->
+<div class="day-section d2" id="d2">
+  <div class="section-head">
+    <div class="day-num">02</div>
+    <div class="day-info">
+      <div class="day-badge-row">
+        <span class="day-pill">DAY 2</span>
+        <span class="day-date-text">2025年6月14日（日）</span>
+      </div>
+      <div class="day-title-text">岐阜城 × 松鼠村 × 長良川千年鸕鶿捕魚秀</div>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">08:00–09:45</div>
+          <div class="tl-name">☕ Kissa Morning — 日式傳統早餐咖啡廳</div>
+        </div>
+        <div class="tl-note">地址：愛知縣名古屋市中村区則武2-32-4 · 點咖啡送吐司的朝食文化，充飽電再出發</div>
+        <div class="tl-tags"><span class="tag tag-food">早餐</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">09:45–10:45</div>
+          <div class="tl-name">🚆 名古屋 → 岐阜站 → 公車至公園</div>
+        </div>
+        <div class="tl-note">搭名鐵或 JR 東海道本線（約 20 分鐘）· 至藍線 12/13 號站牌 → 岐阜公園歷史博物館前下車</div>
+        <div class="tl-tags"><span class="tag tag-warn">⚠ 勿搭ひだ HIDA 特急</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">10:45–12:45</div>
+          <div class="tl-name">🏯 金華山纜車 → 松鼠村 → 岐阜城天守展望台</div>
+        </div>
+        <div class="tl-note">纜車來回 ¥1,300 · 松鼠村 ¥300（持纜車票折 ¥100 收現金）· 岐阜城展望台 360° 俯瞰長良川</div>
+        <div class="tl-tags">
+          <span class="tag tag-ticket">纜車 ¥1,300</span>
+          <span class="tag tag-ticket">松鼠村 ¥300</span>
+          <span class="tag tag-scenic">360° 絕景</span>
+        </div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">12:45–13:15</div>
+          <div class="tl-name">🗿 正法寺 — 岐阜大佛</div>
+        </div>
+        <div class="tl-note">門票 ¥200（收現金）· 日本三大佛之一</div>
+        <div class="tl-tags"><span class="tag tag-ticket">¥200 現金</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">13:15–17:00</div>
+          <div class="tl-name">🏘 川原町古街深度漫遊</div>
+        </div>
+        <div class="tl-note">川原町屋喝老宅下午茶 · 綠水庵買花朵糰子 · 漫步長良川畔拍照 · 長良川鸕鶿博物館（吹冷氣）</div>
+        <div class="tl-tags">
+          <span class="tag tag-scenic">江戶古街</span>
+          <span class="tag tag-food">下午茶</span>
+        </div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">17:00–18:45</div>
+          <div class="tl-name">🐟 川原町 泉屋 — 香魚拉麵套餐</div>
+        </div>
+        <div class="tl-note">年底關門！必吃 ¥3,960 套餐＋¥660 換香魚拉麵 · 已訂位中</div>
+        <div class="tl-tags">
+          <span class="tag tag-done">已訂位</span>
+          <span class="tag tag-warn">年底即將關閉</span>
+          <span class="tag tag-food">¥4,620</span>
+        </div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">20:30–21:30</div>
+          <div class="tl-name">🦅 長良川鸕鶿捕魚夜間秀</div>
+        </div>
+        <div class="tl-note">20:30 煙火開場 · 千年傳統皇室漁法 · 觀覽船上欣賞 · 21:15 返航 · 21:30 散場</div>
+        <div class="tl-tags">
+          <span class="tag tag-done">門票 NT$827 已訂</span>
+          <span class="tag tag-scenic">千年傳統</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 3 -->
+<div class="day-section d3" id="d3">
+  <div class="section-head">
+    <div class="day-num">03</div>
+    <div class="day-info">
+      <div class="day-badge-row">
+        <span class="day-pill">DAY 3</span>
+        <span class="day-date-text">2025年6月15日（一）</span>
+      </div>
+      <div class="day-title-text">長島溫泉樂園 Nagashima Spa Land</div>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">08:15–08:30</div>
+          <div class="tl-name">🚌 名鐵巴士中心出發</div>
+        </div>
+        <div class="tl-note">4F 22號乘車口 · 1 Chome-2-4 Meieki, Nakamura Ward, Nagoya</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">09:30–15:30</div>
+          <div class="tl-name">🎢 長島溫泉樂園 — 瘋狂刷設施</div>
+        </div>
+        <div class="tl-note">一日通票 ¥6,000 · 平日幾乎不用排隊 · 必玩三巨頭：① 白鯨（亞洲首座木石混合雲霄）② 鋼鐵巨龍 2000（金氏世界紀錄最長）③ 嵐 / 蝙蝠俠 4D</div>
+        <div class="tl-tags">
+          <span class="tag tag-ticket">通票 ¥6,000</span>
+          <span class="tag tag-warn">鋼鐵巨龍上午先玩</span>
+        </div>
+        <div class="choice-grid">
+          <div class="choice-card">
+            <div class="choice-label" style="color:#c13228">方案 A｜樂園 ＋ 名花之里 🌺</div>
+            <div class="choice-body">15:40 接駁巴士前往名花之里<br>16:00–19:30 繡球花海漫步<br>19:00 天黑後「光之隧道」點燈秀</div>
+            <div class="choice-price">套票 ¥10,600（ゆったりパック ¥3,000 來回）</div>
+          </div>
+          <div class="choice-card">
+            <div class="choice-label" style="color:#c13228">方案 B｜樂園 ＋ 三井 Outlet 🛍</div>
+            <div class="choice-body">14:30 步行 3 分鐘進 Outlet<br>14:30–19:30 200+ 品牌逛購<br>矢場とん・宮きしめん·雞三和親子丼</div>
+            <div class="choice-price">套票 ¥8,400（含來回巴士＋通票）</div>
+          </div>
+        </div>
+        <div class="tip-box">⏰ 末班車 20:50！務必提前確認回程時間。可與水族館行程互換（視天氣決定）。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 4 -->
+<div class="day-section d4" id="d4">
+  <div class="section-head">
+    <div class="day-num">04</div>
+    <div class="day-info">
+      <div class="day-badge-row">
+        <span class="day-pill">DAY 4</span>
+        <span class="day-date-text">2025年6月16日（二）</span>
+      </div>
+      <div class="day-title-text">名古屋港一日遊 — 水族館 · 南極觀測船 · 展望室</div>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">09:30–16:00</div>
+          <div class="tl-name">🐋 名古屋港水族館＋南極觀測船富士號</div>
+        </div>
+        <div class="tl-note">套票 ¥2,440 · 含港口大樓展望室・名古屋海洋博物館 · 地鐵名港線「名古屋港」站步行 5 分 · 虎鯨・白鯨・海豚表演必看</div>
+        <div class="tl-tags">
+          <span class="tag tag-ticket">套票 ¥2,440</span>
+          <span class="tag tag-warn">⚠ 週一公休</span>
+          <span class="tag tag-scenic">南極船</span>
+        </div>
+        <div class="tip-box">💡 建議購買地鐵一日券可折門票 ¥240，各站自動售票機都有販售。可與長島樂園互換（視天氣決定）。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 5 -->
+<div class="day-section d5" id="d5">
+  <div class="section-head">
+    <div class="day-num">05</div>
+    <div class="day-info">
+      <div class="day-badge-row">
+        <span class="day-pill">DAY 5</span>
+        <span class="day-date-text">2025年6月17日（三）</span>
+      </div>
+      <div class="day-title-text">伊勢神宮一日參拜 × Shimakaze 觀光特急</div>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">09:50–10:25</div>
+          <div class="tl-name">🚆 近鐵名古屋站 → 等候 Shimakaze 特急</div>
+        </div>
+        <div class="tl-note">藍色觀光特急，可提早到月台拍車頭 · 特急券 ¥2,180</div>
+        <div class="tl-tags"><span class="tag tag-ticket">特急券 ¥2,180</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">10:25–11:40</div>
+          <div class="tl-name">🚆 搭 Shimakaze 前往伊勢市（車程 75 分鐘）</div>
+        </div>
+        <div class="tl-note">車上前往 3 / 4 號車廂雙層咖啡廂排隊 · 推薦：松阪牛咖哩・伊勢海老拉麵・在地甜點・地酒</div>
+        <div class="tl-tags"><span class="tag tag-food">車上午餐</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">11:40–12:45</div>
+          <div class="tl-name">⛩ 伊勢神宮 — 外宮（豐受大御神）</div>
+        </div>
+        <div class="tl-note">伊勢市站步行約 10 分鐘 · 傳統：先拜外宮，後拜內宮</div>
+        <div class="tl-tags"><span class="tag tag-scenic">日本最高神社</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">12:50–13:10</div>
+          <div class="tl-name">🚌 搭三重交通巴士 → 內宮・おはらい町</div>
+        </div>
+        <div class="tl-note">車程約 15 分鐘</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">13:10–16:00</div>
+          <div class="tl-name">🍡 おはらい町 · 托福橫丁美食散策</div>
+        </div>
+        <div class="tl-note">赤福紅豆麻糬 · 松阪牛可樂餅 · 伊勢烏龍麵 · 神酒 · 各種名物邊走邊吃</div>
+        <div class="tl-tags"><span class="tag tag-food">必吃赤福</span><span class="tag tag-food">松阪牛可樂餅</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">16:00–17:30</div>
+          <div class="tl-name">⛩ 伊勢神宮 — 內宮（天照大御神）</div>
+        </div>
+        <div class="tl-note">走宇治橋 · 五十鈴川御手洗場淨手 · 正式參拜 · 傍晚人少，氣氛絕佳</div>
+        <div class="tl-tags"><span class="tag tag-scenic">傍晚最美</span><span class="tag tag-scenic">皇室信仰</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">19:16–20:44</div>
+          <div class="tl-name">🚆 近鐵特急 — 伊勢市返回名古屋</div>
+        </div>
+        <div class="tl-note">伊勢志摩ライナー · 特急券 ¥1,340 · 車上休息、整理照片、吃伴手禮</div>
+        <div class="tl-tags"><span class="tag tag-ticket">¥1,340</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 6 -->
+<div class="day-section d6" id="d6">
+  <div class="section-head">
+    <div class="day-num">06</div>
+    <div class="day-info">
+      <div class="day-badge-row">
+        <span class="day-pill">DAY 6</span>
+        <span class="day-date-text">2025年6月18日（四）</span>
+      </div>
+      <div class="day-title-text">飛驒高山 × 白川鄉 UNESCO 世界遺產合掌村</div>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">全天</div>
+          <div class="tl-name">🚌 名古屋出發一日遊（早鳥已預定）</div>
+        </div>
+        <div class="tl-note">飛驒高山：古街・陣屋・三町古老街 → 白川鄉：UNESCO 世界遺產合掌造集落 · 6 月初夏绿意盎然，茅草屋頂夢幻如畫</div>
+        <div class="tl-tags">
+          <span class="tag tag-done">早鳥 NT$1,079 已訂</span>
+          <span class="tag tag-scenic">UNESCO 世界遺產</span>
+          <span class="tag tag-warn">⚠ 合掌村週三公休</span>
+        </div>
+        <div class="tip-box">📍 集合地點：請於出發前確認白川鄉集合資訊。建議攜帶現金，部分商家不收信用卡。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 7 -->
+<div class="day-section d7" id="d7">
+  <div class="section-head">
+    <div class="day-num">07</div>
+    <div class="day-info">
+      <div class="day-badge-row">
+        <span class="day-pill">DAY 7</span>
+        <span class="day-date-text">2025年6月19日（五）</span>
+      </div>
+      <div class="day-title-text">熱田神宮 × 蓬萊軒鰻魚 × 名古屋城 × 榮商圈夜景</div>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">10:30–10:40</div>
+          <div class="tl-name">🦑 蓬萊軒神宮店 — 現場登記候位</div>
+        </div>
+        <div class="tl-note">步行 3 分鐘 · 現場登記鎖定 11:30 第一批進場（早到早占）</div>
+        <div class="tl-tags"><span class="tag tag-warn">務必提早到場登記</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">10:40–11:25</div>
+          <div class="tl-name">⛩ 熱田神宮 — 前半段參拜</div>
+        </div>
+        <div class="tl-note">從西門進入 · 大楠神木（1,300 年樹齡）· 信長塀 · 三種神器「草薙劍」供奉於此</div>
+        <div class="tl-tags"><span class="tag tag-scenic">三種神器之一</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">11:30–12:45</div>
+          <div class="tl-name">🐟 蓬萊軒 — Hitsumabushi 鰻魚三吃</div>
+        </div>
+        <div class="tl-note">第一批進店！名古屋最高級鰻魚料理 · 三種吃法：原味 → 蔥薑山葵 → 茶泡飯</div>
+        <div class="tl-tags"><span class="tag tag-food">名古屋 No.1 必吃</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">12:45–13:45</div>
+          <div class="tl-name">⛩ 熱田神宮 — 後半段參拜</div>
+        </div>
+        <div class="tl-note">最深處「本宮」正式參拜 · 心之小徑靜謐散步 · 東門外買きよめ餅</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">13:45–14:15</div>
+          <div class="tl-name">🚇 地鐵名城線 — 熱田神宮西站 → 名古屋城站</div>
+        </div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">14:15–16:30</div>
+          <div class="tl-name">🏯 名古屋城 — 本丸御殿・天守外觀</div>
+        </div>
+        <div class="tl-note">出示一日券折 ¥100 · 超華麗金鯱！本丸御殿金碧輝煌必看 · 城內庭園散步</div>
+        <div class="tl-tags">
+          <span class="tag tag-ticket">一日券折 ¥100</span>
+          <span class="tag tag-scenic">金鯱天守</span>
+        </div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">16:45 後自由</div>
+          <div class="tl-name">🌆 榮商圈 — 電視塔夕景 × 綠洲21 × 世界的山ちゃん</div>
+        </div>
+        <div class="tl-note">名古屋電視塔（MIRAI TOWER）一日券折 ¥100 看黃昏 · 綠洲21「宇宙船」夜間點燈必拍 · 世界的山ちゃん辣味炸雞翅最後晚餐！</div>
+        <div class="tl-tags">
+          <span class="tag tag-ticket">電視塔折 ¥100</span>
+          <span class="tag tag-scenic">宇宙船夜景</span>
+          <span class="tag tag-food">雞翅必吃</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 8 -->
+<div class="day-section d8" id="d8">
+  <div class="section-head">
+    <div class="day-num">08</div>
+    <div class="day-info">
+      <div class="day-badge-row">
+        <span class="day-pill">DAY 8</span>
+        <span class="day-date-text">2025年6月20日（六）</span>
+      </div>
+      <div class="day-title-text">回程 NGO → TPE 帶著滿滿回憶歸途</div>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">上午</div>
+          <div class="tl-name">🛍 中部國際機場 — 最後伴手禮採購</div>
+        </div>
+        <div class="tl-note">第 1 航廈 Sky Town 4F（入關前 · 無法退稅） · 熱田 あつたnagAya 店也有特色名物</div>
+        <div class="tl-tags"><span class="tag tag-warn">入關前採購無法退稅</span></div>
+        <div class="tip-box">🎁 伴手禮推薦：ういろう（外郎糕）· 名古屋ひつまぶしせんべい · 坂角総本舗えびせんべい · 守口大根</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-time">13:45 起飛</div>
+          <div class="tl-name">✈ NGO → TPE 第二航廈 15:50 落地</div>
+        </div>
+        <div class="tl-note">旅程圓滿結束 🎉 回程入台北第二航廈</div>
+        <div class="tl-tags"><span class="tag tag-done">安全回家</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div><!-- .main -->
+
+<footer>
+  <strong>名古屋8日遊行程表</strong> · 6月13日–20日 · 2025<br>
+  資料整理自旅遊規劃文件 · 請以最新官方資訊為準 · 祝旅途順利 ✈ 🇯🇵
+</footer>
+
+<script>
+  // ── Smooth scroll ──────────────────────────────────────────
+  document.querySelectorAll('.ov-item').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // ── Highlight active day on scroll ─────────────────────────
+  const sections = document.querySelectorAll('.day-section');
+  const ovItems = document.querySelectorAll('.ov-item');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        ovItems.forEach(item => {
+          const isActive = item.getAttribute('href') === '#' + id;
+          item.style.fontWeight = isActive ? '500' : '';
+          if (!item.dataset.wx) {
+            item.style.background = isActive ? 'rgba(26,23,20,0.05)' : '';
+          }
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+
+  // ── 天氣載入（Open-Meteo，自動適應 file:// 與 http:// 環境）──
+  const LOCATIONS = [
+    { lat: 35.1815, lon: 136.9066, name: '名古屋' },
+    { lat: 35.4233, lon: 136.7606, name: '岐阜'   },
+    { lat: 35.0280, lon: 136.7330, name: '長島'   },
+    { lat: 35.0896, lon: 136.8820, name: '名古屋港'},
+    { lat: 34.4873, lon: 136.7057, name: '伊勢'   },
+    { lat: 36.2579, lon: 136.9063, name: '白川鄉' },
+    { lat: 35.1815, lon: 136.9066, name: '名古屋' },
+    { lat: 34.8580, lon: 136.8048, name: '中部機場'},
+  ];
+
+  const TRIP_START = new Date('2026-06-13');
+  const TODAY = new Date(); TODAY.setHours(0,0,0,0);
+
+  function getDate(i) {
+    const base = TRIP_START;
+    const d = new Date(base);
+    d.setDate(d.getDate() + i);
+    return d.toISOString().slice(0, 10);
+  }
+
+  function wxCode(c) {
+    if (c === 0)   return { icon:'☀️', label:'晴天',   type:'sunny'  };
+    if (c <= 2)    return { icon:'⛅',  label:'多雲',   type:'cloudy' };
+    if (c === 3)   return { icon:'☁️', label:'陰天',   type:'cloudy' };
+    if (c <= 49)   return { icon:'🌫️', label:'霧霾',   type:'cloudy' };
+    if (c <= 67)   return { icon:'🌧️', label:'下雨',   type:'rainy'  };
+    if (c <= 77)   return { icon:'🌨️', label:'降雪',   type:'cloudy' };
+    if (c <= 82)   return { icon:'🌦️', label:'陣雨',   type:'rainy'  };
+    if (c <= 99)   return { icon:'⛈️', label:'雷雨',   type:'storm'  };
+    return               { icon:'🌡️', label:'—',      type:'cloudy' };
+  }
+
+  function renderWeather(item, loc, tMax, tMin, code, rain) {
+    const wx = wxCode(code);
+    item.setAttribute('data-wx', wx.type);
+    item.querySelector('.ov-weather').innerHTML = `
+      <div class="ov-wx-icon">${wx.icon}</div>
+      <div class="ov-wx-temp">${tMax}° <span style="opacity:.45;font-weight:300">${tMin}°</span></div>
+      <div class="ov-wx-desc">${loc.name} · ${wx.label}</div>
+      ${rain >= 30 ? `<div class="ov-wx-rain">💧${rain}%</div>` : ''}
+    `;
+  }
+
+  // 用 JSONP 動態 <script> 方式呼叫 Open-Meteo
+  // Open-Meteo 雖不支援 callback，但支援在 URL 後加 &timeformat=unixtime
+  // 真正的 JSONP-capable 免費天氣 API：7timer.info（完全無需 key、支援 JSONP-like script）
+  // 改用 7timer 的 astro/civil API，純文字 JSON，可用 fetch 或 XHR
+  // 但 7timer 也有 CORS 問題……
+  //
+  // 最終方案：Open-Meteo 的 fetch 在 file:// 下 Chrome 其實不會 block（只 block same-origin）
+  // 如果還是 block，就用 no-cors + ReadableStream 讀 opaque response
+  // 真正解法：偵測到 fetch 失敗時，改用 <img> src ping 確認是「無網路」還是「CORS block」
+  // 若是 CORS block，改用 proxy：allorigins.win 或 corsproxy.io
+
+  async function fetchOneDay(i, item) {
+    const loc  = LOCATIONS[i];
+    const date = getDate(i);
+    const url  = `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FTokyo&start_date=${date}&end_date=${date}`;
+
+    // 策略1：直接 fetch（http:// 環境一定成功）
+    try {
+      const r = await fetch(url);
+      if (!r.ok) throw new Error('status ' + r.status);
+      const j = await r.json();
+      const d = j.daily;
+      renderWeather(item, loc,
+        Math.round(d.temperature_2m_max[0]),
+        Math.round(d.temperature_2m_min[0]),
+        d.weathercode[0],
+        d.precipitation_probability_max[0] ?? 0
+      );
+      return;
+    } catch(e1) {
+      // 策略2：透過 CORS proxy（file:// 下 fetch 被 block 時用）
+      const proxy = `https://corsproxy.io/?url=${encodeURIComponent(url)}`;
+      try {
+        const r2 = await fetch(proxy);
+        if (!r2.ok) throw new Error('proxy status ' + r2.status);
+        const j2 = await r2.json();
+        const d2 = j2.daily;
+        renderWeather(item, loc,
+          Math.round(d2.temperature_2m_max[0]),
+          Math.round(d2.temperature_2m_min[0]),
+          d2.weathercode[0],
+          d2.precipitation_probability_max[0] ?? 0
+        );
+        return;
+      } catch(e2) {
+        // 兩種方法都失敗：真的沒網路
+        item.querySelector('.ov-weather').innerHTML =
+          `<span class="ov-wx-desc" style="font-size:9px;color:#b8ada4">無網路</span>`;
+      }
+    }
+  }
+
+  document.querySelectorAll('.ov-item[data-date]').forEach((item, i) => fetchOneDay(i, item));
+</script>
+</body>
+</html>
