@@ -416,6 +416,87 @@
     body { background: white; }
   }
 
+  /* ── TAB NAV ── */
+  .main-tabs {
+    display: flex;
+    gap: 0;
+    background: var(--ink);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid rgba(255,255,255,0.08);
+  }
+  .main-tab {
+    padding: 12px 28px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: rgba(250,247,242,0.5);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.2s, border-color 0.2s;
+    user-select: none;
+  }
+  .main-tab:hover { color: rgba(250,247,242,0.85); }
+  .main-tab.active { color: #faf7f2; border-bottom-color: #b07a0e; }
+
+  /* ── REFERENCE SECTION ── */
+  #ref-section { display: none; }
+  #ref-section.visible { display: block; }
+
+  .ref-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 20px 40px 0;
+    background: var(--paper-warm);
+    border-bottom: 1px solid var(--border);
+  }
+  .ref-tab {
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 20px;
+    cursor: pointer;
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    color: var(--ink-light);
+    transition: all 0.18s;
+    user-select: none;
+  }
+  .ref-tab:hover { background: var(--gold-light); border-color: var(--gold); color: var(--gold); }
+  .ref-tab.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .ref-panel { display: none; padding: 32px 40px 60px; }
+  .ref-panel.visible { display: block; }
+  .ref-panel h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .ref-imgs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .ref-imgs img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    .main-tab { padding: 11px 16px; font-size: 12px; }
+    .ref-tabs { padding: 16px 16px 0; }
+    .ref-panel { padding: 24px 16px 48px; }
+  }
+
   /* Color accents per day */
   .d1 { --accent: #1a6eb5; --accent-light: #e6f0fa; }
   .d2 { --accent: #1a6b60; --accent-light: #e0f3ef; }
@@ -439,7 +520,7 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-deco">旅</div>
-  <div class="hero-label">Japan Travel · 2025</div>
+  <div class="hero-label">Japan Travel · 2026</div>
   <h1 class="hero-title">名古屋八日遊</h1>
   <div class="hero-sub">岐阜 · 伊勢 · 飛驒高山 · 白川鄉</div>
   <div class="hero-meta">
@@ -450,58 +531,67 @@
   </div>
 </div>
 
+<!-- MAIN TAB NAV -->
+<div class="main-tabs">
+  <div class="main-tab active" data-target="itinerary-section">📅 行程表</div>
+  <div class="main-tab" data-target="ref-section">🗂 參考資料</div>
+</div>
+
+<!-- ITINERARY SECTION -->
+<div id="itinerary-section">
+
 <!-- OVERVIEW STRIP -->
 <div class="overview">
-  <a class="ov-item" href="#d1" data-date="2025-06-13">
+  <a class="ov-item" href="#d1" data-date="2026-06-13">
     <div class="ov-day">DAY 1</div>
     <div class="ov-date">6/13</div>
     <div class="ov-theme">大須商店街</div>
     <div class="ov-weather"><span class="ov-wx-loading">載入天氣…</span></div>
     <div class="ov-dot" style="background:#1a6eb5"></div>
   </a>
-  <a class="ov-item" href="#d2" data-date="2025-06-14">
+  <a class="ov-item" href="#d2" data-date="2026-06-14">
     <div class="ov-day">DAY 2</div>
     <div class="ov-date">6/14</div>
     <div class="ov-theme">岐阜城・鸕鶿</div>
     <div class="ov-weather"><span class="ov-wx-loading">載入天氣…</span></div>
     <div class="ov-dot" style="background:#1a6b60"></div>
   </a>
-  <a class="ov-item" href="#d3" data-date="2025-06-15">
+  <a class="ov-item" href="#d3" data-date="2026-06-15">
     <div class="ov-day">DAY 3</div>
     <div class="ov-date">6/15</div>
     <div class="ov-theme">長島樂園</div>
     <div class="ov-weather"><span class="ov-wx-loading">載入天氣…</span></div>
     <div class="ov-dot" style="background:#c13228"></div>
   </a>
-  <a class="ov-item" href="#d4" data-date="2025-06-16">
+  <a class="ov-item" href="#d4" data-date="2026-06-16">
     <div class="ov-day">DAY 4</div>
     <div class="ov-date">6/16</div>
     <div class="ov-theme">名古屋水族館</div>
     <div class="ov-weather"><span class="ov-wx-loading">載入天氣…</span></div>
     <div class="ov-dot" style="background:#6a3aab"></div>
   </a>
-  <a class="ov-item" href="#d5" data-date="2025-06-17">
+  <a class="ov-item" href="#d5" data-date="2026-06-17">
     <div class="ov-day">DAY 5</div>
     <div class="ov-date">6/17</div>
     <div class="ov-theme">伊勢神宮</div>
     <div class="ov-weather"><span class="ov-wx-loading">載入天氣…</span></div>
     <div class="ov-dot" style="background:#b07a0e"></div>
   </a>
-  <a class="ov-item" href="#d6" data-date="2025-06-18">
+  <a class="ov-item" href="#d6" data-date="2026-06-18">
     <div class="ov-day">DAY 6</div>
     <div class="ov-date">6/18</div>
     <div class="ov-theme">飛驒・白川鄉</div>
     <div class="ov-weather"><span class="ov-wx-loading">載入天氣…</span></div>
     <div class="ov-dot" style="background:#2b4a8f"></div>
   </a>
-  <a class="ov-item" href="#d7" data-date="2025-06-19">
+  <a class="ov-item" href="#d7" data-date="2026-06-19">
     <div class="ov-day">DAY 7</div>
     <div class="ov-date">6/19</div>
     <div class="ov-theme">熱田・名城・榮</div>
     <div class="ov-weather"><span class="ov-wx-loading">載入天氣…</span></div>
     <div class="ov-dot" style="background:#c13228"></div>
   </a>
-  <a class="ov-item" href="#d8" data-date="2025-06-20">
+  <a class="ov-item" href="#d8" data-date="2026-06-20">
     <div class="ov-day">DAY 8</div>
     <div class="ov-date">6/20</div>
     <div class="ov-theme">回程</div>
@@ -519,7 +609,7 @@
     <div class="day-info">
       <div class="day-badge-row">
         <span class="day-pill">DAY 1</span>
-        <span class="day-date-text">2025年6月13日（六）</span>
+        <span class="day-date-text">2026年6月13日（六）</span>
       </div>
       <div class="day-title-text">抵達名古屋 × 大須商店街</div>
     </div>
@@ -580,7 +670,7 @@
     <div class="day-info">
       <div class="day-badge-row">
         <span class="day-pill">DAY 2</span>
-        <span class="day-date-text">2025年6月14日（日）</span>
+        <span class="day-date-text">2026年6月14日（日）</span>
       </div>
       <div class="day-title-text">岐阜城 × 松鼠村 × 長良川千年鸕鶿捕魚秀</div>
     </div>
@@ -680,7 +770,7 @@
     <div class="day-info">
       <div class="day-badge-row">
         <span class="day-pill">DAY 3</span>
-        <span class="day-date-text">2025年6月15日（一）</span>
+        <span class="day-date-text">2026年6月15日（一）</span>
       </div>
       <div class="day-title-text">長島溫泉樂園 Nagashima Spa Land</div>
     </div>
@@ -706,18 +796,7 @@
           <span class="tag tag-ticket">通票 ¥6,000</span>
           <span class="tag tag-warn">鋼鐵巨龍上午先玩</span>
         </div>
-        <div class="choice-grid">
-          <div class="choice-card">
-            <div class="choice-label" style="color:#c13228">方案 A｜樂園 ＋ 名花之里 🌺</div>
-            <div class="choice-body">15:40 接駁巴士前往名花之里<br>16:00–19:30 繡球花海漫步<br>19:00 天黑後「光之隧道」點燈秀</div>
-            <div class="choice-price">套票 ¥10,600（ゆったりパック ¥3,000 來回）</div>
-          </div>
-          <div class="choice-card">
-            <div class="choice-label" style="color:#c13228">方案 B｜樂園 ＋ 三井 Outlet 🛍</div>
-            <div class="choice-body">14:30 步行 3 分鐘進 Outlet<br>14:30–19:30 200+ 品牌逛購<br>矢場とん・宮きしめん·雞三和親子丼</div>
-            <div class="choice-price">套票 ¥8,400（含來回巴士＋通票）</div>
-          </div>
-        </div>
+        <div class="tip-box">🛍 14:30 步行 3 分鐘進三井 Outlet · 200+ 品牌逛購至 19:30 · 晚餐推薦：矢場とん・宮きしめん・雞三和親子丼 · 套票 ¥8,400（含來回巴士＋通票）</div>
         <div class="tip-box">⏰ 末班車 20:50！務必提前確認回程時間。可與水族館行程互換（視天氣決定）。</div>
       </div>
     </div>
@@ -731,7 +810,7 @@
     <div class="day-info">
       <div class="day-badge-row">
         <span class="day-pill">DAY 4</span>
-        <span class="day-date-text">2025年6月16日（二）</span>
+        <span class="day-date-text">2026年6月16日（二）</span>
       </div>
       <div class="day-title-text">名古屋港一日遊 — 水族館 · 南極觀測船 · 展望室</div>
     </div>
@@ -762,7 +841,7 @@
     <div class="day-info">
       <div class="day-badge-row">
         <span class="day-pill">DAY 5</span>
-        <span class="day-date-text">2025年6月17日（三）</span>
+        <span class="day-date-text">2026年6月17日（三）</span>
       </div>
       <div class="day-title-text">伊勢神宮一日參拜 × Shimakaze 觀光特急</div>
     </div>
@@ -847,7 +926,7 @@
     <div class="day-info">
       <div class="day-badge-row">
         <span class="day-pill">DAY 6</span>
-        <span class="day-date-text">2025年6月18日（四）</span>
+        <span class="day-date-text">2026年6月18日（四）</span>
       </div>
       <div class="day-title-text">飛驒高山 × 白川鄉 UNESCO 世界遺產合掌村</div>
     </div>
@@ -878,7 +957,7 @@
     <div class="day-info">
       <div class="day-badge-row">
         <span class="day-pill">DAY 7</span>
-        <span class="day-date-text">2025年6月19日（五）</span>
+        <span class="day-date-text">2026年6月19日（五）</span>
       </div>
       <div class="day-title-text">熱田神宮 × 蓬萊軒鰻魚 × 名古屋城 × 榮商圈夜景</div>
     </div>
@@ -968,7 +1047,7 @@
     <div class="day-info">
       <div class="day-badge-row">
         <span class="day-pill">DAY 8</span>
-        <span class="day-date-text">2025年6月20日（六）</span>
+        <span class="day-date-text">2026年6月20日（六）</span>
       </div>
       <div class="day-title-text">回程 NGO → TPE 帶著滿滿回憶歸途</div>
     </div>
@@ -1002,12 +1081,105 @@
 
 </div><!-- .main -->
 
+</div><!-- #itinerary-section -->
+
+<!-- REFERENCE SECTION -->
+<div id="ref-section">
+  <div class="ref-tabs">
+    <div class="ref-tab active" data-panel="ref-osu">大須商店街地圖</div>
+    <div class="ref-tab" data-panel="ref-gifu">岐阜城一日遊</div>
+    <div class="ref-tab" data-panel="ref-nagashima">長島樂園交通</div>
+    <div class="ref-tab" data-panel="ref-aqua">名古屋水族館</div>
+    <div class="ref-tab" data-panel="ref-food">飲食</div>
+    <div class="ref-tab" data-panel="ref-shimakaze">島風號週邊</div>
+    <div class="ref-tab" data-panel="ref-shirakawa">集合地點白川鄉</div>
+  </div>
+
+  <div id="ref-osu" class="ref-panel visible">
+    <h2>大須商店街地圖</h2>
+    <div class="ref-imgs">
+      <img src="imgs/image17.png" alt="大須商店街地圖">
+    </div>
+  </div>
+  <div id="ref-gifu" class="ref-panel">
+    <h2>岐阜城一日遊</h2>
+    <div class="ref-imgs">
+      <img src="imgs/image25.png" alt="岐阜城一日遊 1">
+      <img src="imgs/image29.png" alt="岐阜城一日遊 2">
+    </div>
+  </div>
+  <div id="ref-nagashima" class="ref-panel">
+    <h2>長島溫泉樂園交通</h2>
+    <div class="ref-imgs">
+      <img src="imgs/image26.png" alt="長島交通 1">
+      <img src="imgs/image24.png" alt="長島交通 2">
+    </div>
+  </div>
+  <div id="ref-aqua" class="ref-panel">
+    <h2>名古屋水族館</h2>
+    <div class="ref-imgs">
+      <img src="imgs/image12.png" alt="名古屋水族館 1">
+      <img src="imgs/image18.png" alt="名古屋水族館 2">
+      <img src="imgs/image13.png" alt="名古屋水族館 3">
+    </div>
+  </div>
+  <div id="ref-food" class="ref-panel">
+    <h2>飲食</h2>
+    <div class="ref-imgs">
+      <img src="imgs/image15.png" alt="蓬萊軒">
+      <figure style="margin:0">
+        <img src="imgs/image16.png" alt="咖啡店 KAKO 柳橋店">
+        <figcaption style="margin-top:8px;font-size:13px;font-weight:500;color:var(--ink-mid)">咖啡店 KAKO 柳橋店</figcaption>
+      </figure>
+      <figure style="margin:0">
+        <img src="imgs/image30.png" alt="Panel Cafe">
+        <figcaption style="margin-top:8px;font-size:13px;font-weight:500;color:var(--ink-mid)">Panel Cafe</figcaption>
+      </figure>
+    </div>
+  </div>
+  <div id="ref-shimakaze" class="ref-panel">
+    <h2>島風號週邊商品</h2>
+    <div class="ref-imgs">
+      <img src="imgs/image19.png" alt="島風號週邊商品">
+    </div>
+  </div>
+  <div id="ref-shirakawa" class="ref-panel">
+    <h2>集合地點白川鄉</h2>
+    <div class="ref-imgs">
+      <img src="imgs/image28.png" alt="集合地點白川鄉">
+    </div>
+  </div>
+</div><!-- #ref-section -->
+
 <footer>
-  <strong>名古屋8日遊行程表</strong> · 6月13日–20日 · 2025<br>
+  <strong>名古屋8日遊行程表</strong> · 6月13日–20日 · 2026<br>
   資料整理自旅遊規劃文件 · 請以最新官方資訊為準 · 祝旅途順利 ✈ 🇯🇵
 </footer>
 
 <script>
+  // ── Main tab switching ─────────────────────────────────────
+  document.querySelectorAll('.main-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.main-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const target = tab.dataset.target;
+      document.getElementById('itinerary-section').style.display = target === 'itinerary-section' ? '' : 'none';
+      const refEl = document.getElementById('ref-section');
+      if (target === 'ref-section') refEl.classList.add('visible');
+      else refEl.classList.remove('visible');
+    });
+  });
+
+  // ── Ref sub-tab switching ───────────────────────────────────
+  document.querySelectorAll('.ref-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.ref-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelectorAll('.ref-panel').forEach(p => p.classList.remove('visible'));
+      document.getElementById(tab.dataset.panel).classList.add('visible');
+    });
+  });
+
   // ── Smooth scroll ──────────────────────────────────────────
   document.querySelectorAll('.ov-item').forEach(link => {
     link.addEventListener('click', e => {
